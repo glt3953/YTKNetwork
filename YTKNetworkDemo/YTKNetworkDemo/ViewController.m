@@ -12,6 +12,7 @@
 #import "GetImageApi.h"
 #import "GetUserInfoApi.h"
 #import "RegisterApi.h"
+#import "GetHomeInfoApi.h"
 
 @interface ViewController ()<YTKChainRequestDelegate>
 
@@ -79,8 +80,19 @@
     }];
 }
 
+- (void)loadHomeInfo {
+    GetHomeInfoApi *api = [[GetHomeInfoApi alloc] initWithUserId:@"glt"];
+    [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        NSLog(@"update ui");
+    } failure:^(YTKBaseRequest *request) {
+        NSLog(@"failed");
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self loadHomeInfo];
 }
 
 - (void)didReceiveMemoryWarning {

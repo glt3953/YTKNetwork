@@ -17,10 +17,13 @@
 @implementation AppDelegate
 
 - (void)setupRequestFilters {
-    NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     YTKNetworkConfig *config = [YTKNetworkConfig sharedInstance];
-    YTKUrlArgumentsFilter *urlFilter = [YTKUrlArgumentsFilter filterWithArguments:@{@"version": appVersion}];
-    [config addUrlFilter:urlFilter];
+//    config.baseUrl = @"www.107room.com";
+    config.baseUrl = @"www.baidu.com";
+//    NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+//    UIDevice *device = [UIDevice currentDevice];
+//    YTKUrlArgumentsFilter *urlFilter = [YTKUrlArgumentsFilter filterWithArguments:@{@"version":appVersion, @"deviceId":device.identifierForVendor.UUIDString, @"system":[[[UIDevice currentDevice] systemName] stringByAppendingFormat:@" %@", [[UIDevice currentDevice] systemVersion]], @"platform":@"ios", @"channel":@27}];
+//    [config addUrlFilter:urlFilter];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

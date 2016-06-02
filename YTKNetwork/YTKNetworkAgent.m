@@ -80,6 +80,7 @@
         }
     }
     return [NSString stringWithFormat:@"%@%@", baseUrl, detailUrl];
+//    return [[NSString stringWithFormat:@"%@%@", baseUrl, detailUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (void)addRequest:(YTKBaseRequest *)request {
